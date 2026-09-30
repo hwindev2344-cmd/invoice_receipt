@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>Invoice Generator</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="card hero">
+      <div>
+        <p class="eyebrow">STUDENT PAYMENT</p>
+        <h1>Invoice Generator</h1>
+        <p class="muted">Create a clean invoice and a shareable payment link.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <form id="invoiceForm" autocomplete="off">
+        <div class="section-title">Student & payment details</div>
+
+        <label>
+          Student Name
+          <input id="studentName" type="text" placeholder="Aung Aung" required>
+        </label>
+
+        <div class="grid-2">
+          <label>
+            Schedule
+            <input id="schedule" type="text" placeholder="2x / week" required>
+          </label>
+
+          <label>
+            Sessions in Month
+            <input id="sessions" type="number" min="1" step="1" placeholder="10" required>
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <label>
+            Price Per Session
+            <input id="price" type="number" min="0" step="1" placeholder="5000" required>
+          </label>
+
+          <label>
+            Invoice Date
+            <input id="invoiceDate" type="date" required>
+          </label>
+        </div>
+
+        <label>
+          Payment Phone Number
+          <input id="paymentPhone" type="tel" placeholder="09xxxxxxxxx" required>
+          <span class="hint">Shown on the payment page with a Copy button.</span>
+        </label>
+
+        <label>
+          Currency
+          <input id="currency" type="text" value="MMK" maxlength="8">
+        </label>
+
+        <button class="primary-btn" type="submit">Generate Invoice</button>
+      </form>
+    </section>
+
+    <section id="result" class="card result hidden">
+      <div class="success-icon">✓</div>
+      <div>
+        <p class="eyebrow">READY</p>
+        <h2>Invoice generated</h2>
+        <p class="muted">Download the PNG or send the payment link to your student.</p>
+      </div>
+
+      <div class="preview-wrap">
+        <img id="invoicePreview" alt="Generated invoice preview">
+      </div>
+
+      <div class="actions">
+        <button id="downloadInvoice" class="secondary-btn">Download PNG</button>
+        <button id="shareInvoice" class="secondary-btn">Share</button>
+      </div>
+
+      <label class="link-label">
+        Payment Link
+        <div class="copy-row">
+          <input id="paymentLink" readonly>
+          <button id="copyLink" class="icon-btn" type="button">Copy</button>
+        </div>
+      </label>
+
+      <a id="openPayment" class="primary-btn button-link" target="_blank" rel="noopener">Open Payment Page</a>
+    </section>
+
+    <footer>Runs entirely in your browser. No account or server required.</footer>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/invoice.js"></script>
+</body>
+</html>

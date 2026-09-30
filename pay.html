@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>Payment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app-shell narrow">
+    <section class="card hero compact">
+      <p class="eyebrow">STUDENT PAYMENT</p>
+      <h1 id="payTitle">Payment</h1>
+      <p id="paySubtitle" class="muted">Review the invoice and make your payment.</p>
+    </section>
+
+    <section id="invoiceCard" class="card">
+      <div class="amount-box">
+        <span>Total to pay</span>
+        <strong id="payAmount">—</strong>
+      </div>
+
+      <div class="detail-list">
+        <div><span>Student</span><strong id="payStudent">—</strong></div>
+        <div><span>Schedule</span><strong id="paySchedule">—</strong></div>
+        <div><span>Sessions</span><strong id="paySessions">—</strong></div>
+        <div><span>Invoice date</span><strong id="payDate">—</strong></div>
+      </div>
+
+      <div class="payment-box">
+        <p class="eyebrow">PAYMENT NUMBER</p>
+        <div class="phone-row">
+          <strong id="phoneNumber">—</strong>
+          <button id="copyPhone" class="icon-btn" type="button">Copy</button>
+        </div>
+        <p class="hint">Pay using your preferred banking or payment app, then generate your receipt below.</p>
+      </div>
+
+      <label>
+        Payment Receipt Picture
+        <input id="receiptFile" type="file" accept="image/*" capture="environment">
+        <span class="hint">
+          Upload your payment screenshot or payment confirmation.
+        </span>
+      </label>
+
+      <button id="paidBtn" class="primary-btn" disabled>
+        Generate Receipt
+      </button>
+    </section>
+
+    <section id="receiptSection" class="card hidden">
+      <div class="success-icon">✓</div>
+      <div>
+        <p class="eyebrow">PAYMENT RECEIPT</p>
+        <h2>Receipt ready</h2>
+        <p class="muted">Save this PNG and send it to the seller. The seller should verify the actual payment separately.</p>
+      </div>
+
+      <div class="preview-wrap">
+        <img id="receiptPreview" alt="Generated payment receipt">
+      </div>
+
+      <div class="actions">
+        <button id="downloadReceipt" class="secondary-btn">Download PNG</button>
+        <button id="shareReceipt" class="secondary-btn">Share</button>
+      </div>
+
+      <button id="copyReceiptText" class="secondary-btn full">Copy Receipt Details</button>
+    </section>
+
+    <section id="errorCard" class="card hidden error">
+      <h2>Invalid payment link</h2>
+      <p>This link does not contain enough invoice information. Please ask the seller for a new link.</p>
+    </section>
+
+    <footer>Runs entirely in your browser. No payment or receipt data is uploaded.</footer>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/payment.js"></script>
+</body>
+</html>
